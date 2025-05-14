@@ -30,6 +30,7 @@ slider.addEventListener("click", function (e) {
     showSlide(nextIndex);
   }
 });
+
 function nextSlide() {
   currentIndex = currentIndex + 1 === sliderItems.length ? 0 : currentIndex + 1;
   showSlide(currentIndex);

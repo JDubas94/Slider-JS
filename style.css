@@ -69,8 +69,6 @@ a {
     display: none;
 }
 
-
-
 .slider{
     height: 100vh;
     display: flex;
@@ -84,6 +82,9 @@ a {
     padding: 0 15px;
     margin: 0 auto;
 }
+.slider__inner{
+    position: relative;
+}
 .slider__title{
     text-align: center;
 }
@@ -94,8 +95,34 @@ a {
 .slider__img{
     margin-bottom: 10px;
 }
-.slider__buttons{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+.slider__button{
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+}
+.slider__button-prev{
+    position: absolute;
+    left: -20%;
+}
+.slider__button-next{
+    position: absolute;
+    right: -20%;
+}
+.slider__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: gray;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: black;
 }

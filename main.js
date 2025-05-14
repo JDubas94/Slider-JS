@@ -2,6 +2,8 @@ const slider = document.getElementById("slider");
 const sliderItems = Array.from(slider.children);
 const btnNext = document.getElementById("btnNext");
 const btnPrev = document.getElementById("btnPrev");
+const dotsContainer = document.querySelector(".slider__dots");
+const dots = Array.from(dotsContainer.children);
 
 let currentIndex = 0;
 
@@ -14,6 +16,13 @@ sliderItems.forEach((slide, index) => {
 btnNext.addEventListener("click", nextSlide);
 btnPrev.addEventListener("click", prevSlide);
 
+dots.forEach((dot) => {
+  dot.addEventListener("click", () => {
+    const index = Number(dot.dataset.index);
+    showSlide(index);
+  });
+});
+
 slider.addEventListener("click", function (e) {
   if (e.target.tagName === "IMG") {
     const nextIndex =
@@ -22,20 +31,22 @@ slider.addEventListener("click", function (e) {
   }
 });
 function nextSlide() {
-  sliderItems[currentIndex].classList.add("hidden");
   currentIndex = currentIndex + 1 === sliderItems.length ? 0 : currentIndex + 1;
-  sliderItems[currentIndex].classList.remove("hidden");
+  showSlide(currentIndex);
 }
 function prevSlide() {
-  sliderItems[currentIndex].classList.add("hidden");
   currentIndex =
     currentIndex - 1 < 0 ? sliderItems.length - 1 : currentIndex - 1;
-  sliderItems[currentIndex].classList.remove("hidden");
+  showSlide(currentIndex);
 }
 
 function showSlide(index) {
   sliderItems.forEach((slide, i) => {
     slide.classList.toggle("hidden", i !== index);
+  });
+
+  dots.forEach((dot, i) => {
+    dot.classList.toggle("active", i === index);
   });
   currentIndex = index;
 }
@@ -43,5 +54,3 @@ function showSlide(index) {
 let autoSlideShow = setInterval(nextSlide, 3000)
 slider.addEventListener('mouseenter', () =>  clearInterval(autoSlideShow));
 slider.addEventListener('mouseleave', () => autoSlide = setInterval(nextSlide, 3000));
-
-

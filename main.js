@@ -40,4 +40,8 @@ function showSlide(index) {
   currentIndex = index;
 }
 
+let autoSlideShow = setInterval(nextSlide, 3000)
+slider.addEventListener('mouseenter', () =>  clearInterval(autoSlideShow));
+slider.addEventListener('mouseleave', () => autoSlide = setInterval(nextSlide, 3000));
+
 

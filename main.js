@@ -52,12 +52,12 @@ function showSlide(index) {
   currentIndex = index;
 }
 
-let autoSlideShow = setInterval(nextSlide, 3000);
-slider.addEventListener("mouseenter", () => clearInterval(autoSlideShow));
-slider.addEventListener(
-  "mouseleave",
-  () => (autoSlideShow = setInterval(nextSlide, 3000))
-);
+// let autoSlideShow = setInterval(nextSlide, 3000);
+// slider.addEventListener("mouseenter", () => clearInterval(autoSlideShow));
+// slider.addEventListener(
+//   "mouseleave",
+//   () => (autoSlideShow = setInterval(nextSlide, 3000))
+// );
 
 sliderItems.forEach((slid) => {
   slid.addEventListener("pointerdown", (event) => {

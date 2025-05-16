@@ -126,3 +126,20 @@ a {
 .dot.active {
   background: black;
 }
+
+@media (max-width: 470px){
+    .slider__dots{
+        display: none;
+    }   
+    .slider__button{
+        top: 110%;
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+    .slider__button-prev{
+        left: 10%;
+    }
+    .slider__button-next{
+        right: 10%;
+    }
+}

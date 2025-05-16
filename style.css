@@ -65,9 +65,6 @@ a {
 
 
 
-.hidden {
-    display: none;
-}
 
 .slider {
     height: 100vh;
@@ -93,13 +90,21 @@ a {
 
 .slider__items {
     padding-top: 20px;
+    position: relative;
 }
 
 .slider__img {
+    position: absolute;
     margin-bottom: 10px;
     width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.slider__img.active {
+    position: relative;
     opacity: 1;
-    transition: all 0.5s;
+    z-index: 1;
 }
 
 .slider__button {

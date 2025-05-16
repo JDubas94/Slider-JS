@@ -8,11 +8,6 @@ const btnAutoplay = document.getElementById("btn-autoplay");
 
 let currentIndex = 0;
 
-sliderItems.forEach((slide, index) => {
-  if (index !== currentIndex) {
-    slide.classList.add("hidden");
-  }
-});
 
 btnNext.addEventListener("click", nextSlide);
 btnPrev.addEventListener("click", prevSlide);
@@ -44,7 +39,7 @@ function prevSlide() {
 
 function showSlide(index) {
   sliderItems.forEach((slide, i) => {
-    slide.classList.toggle("hidden", i !== index);
+    slide.classList.toggle("active", i === index);
   });
 
   dots.forEach((dot, i) => {

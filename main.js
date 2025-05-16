@@ -57,7 +57,10 @@ slider.addEventListener(
 
 let isPlaying = true;
 
-btnAutoplay.addEventListener("click", toggleAutoplaySlider);
+btnAutoplay.addEventListener("click", (e) => {
+  e.stopPropagation();
+  toggleAutoplaySlider();
+});
 
 function toggleAutoplaySlider() {
   isPlaying = !isPlaying;

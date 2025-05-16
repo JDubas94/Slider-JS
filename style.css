@@ -91,6 +91,7 @@ a {
 .slider__items {
     padding-top: 20px;
     position: relative;
+    height: auto;
 }
 
 .slider__img {
@@ -153,6 +154,7 @@ a {
 }
 
 .slider__btn-autoplay {
+    position: relative;
     width: 50px;
     margin: 10px auto 0;
     display: block;
@@ -161,6 +163,8 @@ a {
     color: #fff;
     background-color: #000;
     border-radius: 10px;
+    cursor: pointer;
+    z-index: 10;
 }
 
 

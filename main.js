@@ -52,6 +52,40 @@ function showSlide(index) {
   currentIndex = index;
 }
 
-let autoSlideShow = setInterval(nextSlide, 3000)
-slider.addEventListener('mouseenter', () =>  clearInterval(autoSlideShow));
-slider.addEventListener('mouseleave', () => autoSlide = setInterval(nextSlide, 3000));
+let autoSlideShow = setInterval(nextSlide, 3000);
+slider.addEventListener("mouseenter", () => clearInterval(autoSlideShow));
+slider.addEventListener(
+  "mouseleave",
+  () => (autoSlideShow = setInterval(nextSlide, 3000))
+);
+
+sliderItems.forEach((slid) => {
+  slid.addEventListener("pointerdown", (event) => {
+    let startX = event.clientX;
+
+    slid.setPointerCapture(event.pointerId);
+
+    const onMove = (e) => {
+      let endX = event.clientX;
+      const diff = startX - endX;
+
+      if (diff > 50) {
+        nextSlide();
+        cleanup();
+      } else if (diff < -50) {
+        prevSlide();
+        cleanup();
+      }
+    };
+    const onUp = () => {
+      cleanup();
+    };
+    function cleanup() {
+      slid.removeEventListener("pointermove", onMove);
+      slid.removeEventListener("pointerup", onUp);
+    }
+
+    slid.addEventListener("pointermove", onMove);
+    slid.addEventListener("pointerup", onUp);
+  });
+});

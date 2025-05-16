@@ -65,81 +65,102 @@ a {
 
 
 
-.hidden{
+.hidden {
     display: none;
 }
 
-.slider{
+.slider {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
-.container{
+.container {
     max-width: 1270px;
     padding: 0 15px;
     margin: 0 auto;
 }
-.slider__inner{
+
+.slider__inner {
     position: relative;
 }
-.slider__title{
+
+.slider__title {
     text-align: center;
 }
 
-.slider__items{
+.slider__items {
     padding-top: 20px;
 }
-.slider__img{
+
+.slider__img {
     margin-bottom: 10px;
 }
-.slider__button{
-   position: absolute;
-   top: 50%;
-   transform: translateY(-50%);
+
+.slider__button {
+    border: none;
+    background-color: #000;
+    border-radius: 10px;
+    padding: 10px;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /* cursor: pointer; */
 }
-.slider__button-prev{
+
+.slider__button:hover {
+    background-color: #444;
+    cursor: pointer;
+}
+
+.slider__button-prev {
     position: absolute;
     left: -20%;
 }
-.slider__button-next{
+
+.slider__button-next {
     position: absolute;
     right: -20%;
 }
+
 .slider__dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: gray;
-  cursor: pointer;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: gray;
+    cursor: pointer;
 }
 
 .dot.active {
-  background: black;
+    background: black;
 }
 
-@media (max-width: 470px){
-    .slider__dots{
+@media (max-width: 470px) {
+    .slider__dots {
         display: none;
-    }   
-    .slider__button{
+    }
+
+    .slider__button {
         top: 110%;
         font-size: 14px;
         padding: 6px 12px;
     }
-    .slider__button-prev{
+
+    .slider__button-prev {
         left: 10%;
     }
-    .slider__button-next{
+
+    .slider__button-next {
         right: 10%;
     }
 }

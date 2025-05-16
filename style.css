@@ -97,6 +97,9 @@ a {
 
 .slider__img {
     margin-bottom: 10px;
+    width: 100%;
+    opacity: 1;
+    transition: all 0.5s;
 }
 
 .slider__button {
@@ -108,7 +111,6 @@ a {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    /* cursor: pointer; */
 }
 
 .slider__button:hover {
@@ -144,6 +146,18 @@ a {
 .dot.active {
     background: black;
 }
+
+.slider__btn-autoplay {
+    width: 50px;
+    margin: 10px auto 0;
+    display: block;
+    padding: 8px;
+    border: none;
+    color: #fff;
+    background-color: #000;
+    border-radius: 10px;
+}
+
 
 @media (max-width: 470px) {
     .slider__dots {

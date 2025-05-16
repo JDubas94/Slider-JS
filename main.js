@@ -4,6 +4,7 @@ const btnNext = document.getElementById("btnNext");
 const btnPrev = document.getElementById("btnPrev");
 const dotsContainer = document.querySelector(".slider__dots");
 const dots = Array.from(dotsContainer.children);
+const btnAutoplay = document.getElementById("btn-autoplay");
 
 let currentIndex = 0;
 
@@ -52,12 +53,30 @@ function showSlide(index) {
   currentIndex = index;
 }
 
-// let autoSlideShow = setInterval(nextSlide, 3000);
-// slider.addEventListener("mouseenter", () => clearInterval(autoSlideShow));
-// slider.addEventListener(
-//   "mouseleave",
-//   () => (autoSlideShow = setInterval(nextSlide, 3000))
-// );
+let autoSlideShow = setInterval(nextSlide, 3000);
+slider.addEventListener("mouseenter", () => clearInterval(autoSlideShow));
+slider.addEventListener(
+  "mouseleave",
+  () => (autoSlideShow = setInterval(nextSlide, 3000))
+);
+
+let isPlaying = true;
+
+btnAutoplay.addEventListener("click", toggleAutoplaySlider);
+
+function toggleAutoplaySlider() {
+  isPlaying = !isPlaying;
+  if (isPlaying) {
+    autoSlideShow = setInterval(nextSlide, 3000);
+    btnAutoplay.innerHTML =
+      '<svg width="16" height="16" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="2" width="3" height="12" /><rect x="9" y="2" width="3" height="12" /></svg>';
+    
+  } else {
+    clearInterval(autoSlideShow);
+    btnAutoplay.innerHTML =
+      '<svg width="16" height="16" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg"><polygon points="4,2 14,8 4,14"/></svg>';
+  }
+}
 
 sliderItems.forEach((slid) => {
   slid.addEventListener("pointerdown", (event) => {
